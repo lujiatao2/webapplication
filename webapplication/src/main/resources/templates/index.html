@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+a:link, a:visited {
+	color: black;
+}
+
+a:hover, a:active {
+	color: gray;
+}
+
+nav {
+	padding-bottom: 30px;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+nav ul li {
+	border-right: 1px solid white;
+	float: left;
+	width: 200px;
+}
+
+nav ul li a {
+	color: white !important;
+	display: block;
+	font-weight: bold;
+	padding: 5px;
+	text-decoration: none;
+}
+
+nav ul li a:link, nav ul li a:visited {
+	background-color: black;
+}
+
+nav ul li a:hover, nav ul li a:active {
+	background-color: gray;
+}
+
+nav ul ul {
+	display: none;
+	margin-right: 0;
+	position: absolute;
+}
+
+nav ul ul li {
+	border-right: none;
+	clear: left;
+}
+
+nav ul li:hover ul {
+	display: block;
+}
+
+nav label {
+	float: right;
+}
+
+#id1 {
+	clear: left;
+	text-indent: 2rem;
+}
+
+input {
+	border-radius: 2px;
+	line-height: 1.5rem;
+}
+
+button {
+	border-radius: 2px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	line-height: 1.5rem;
+}
+</style>
+<meta charset="UTF-8">
+<title>首页</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="">Apple</a>
+				<ul>
+					<li><a th:href="@{/openIPhone6S}">iPhone 6S</a></li>
+				</ul></li>
+			<li><a href="">Motorola</a>
+				<ul>
+					<li><a th:href="@{/openMotoZ}" target="_blank">moto Z</a></li>
+					<li><a href="">moto Z Play</a></li>
+				</ul></li>
+			<li><a href="">HUAWEI</a>
+				<ul>
+					<li><a href="">P30</a></li>
+					<li><a href="">Mate 20</a></li>
+				</ul></li>
+		</ul>
+		<label>欢迎<span th:text="${user}">用户名</span>！<a
+			th:href="@{/logout}">注销</a></label>
+	</nav>
+	<div id="id1">
+		<p>
+			<a th:href="@{/openIPhone6S}">在当前窗口打开iPhone 6S页面</a>
+		</p>
+		<p>
+			<a th:href="@{/openMotoZ}" target="_blank">在新窗口打开moto Z页面</a>
+		</p>
+		<p>
+			<label id="label-id">我是标签1</label>
+		</p>
+		<p>
+			<label class="label-class">我是标签2</label>
+		</p>
+		<p>
+			<label>我是标签3</label>
+		</p>
+		<p>
+			<label><a href="">我是标签4</a></label>
+		</p>
+		<p>
+			<label><a href="">我是标签5我是标签5我是标签5我是标签5我是标签5</a></label>
+		</p>
+		<p>
+			<label>我是标签6</label>
+		</p>
+		<p>
+			<label>我是标签7</label>
+		</p>
+		<p>
+			<input name="label-name" placeholder="我是输入框"></input>
+		</p>
+		<p>
+			<button id="my-button">我是按钮</button>
+			<label id="my-label">点击了0次按钮，刷新页面重置次数！</label>
+		</p>
+		<p>
+			<label>你喜欢哪个手机品牌？</label> <input type="radio" name="radio"
+				value="Apple" checked /> <label>Apple</label> <input type="radio"
+				name="radio" value="Motorola" /> <label>Motorola</label> <input
+				type="radio" name="radio" value="HUAWEI" /> <label>HUAWEI</label>
+		</p>
+		<p>
+			<label>你喜欢哪些手机品牌？</label> <input type="checkbox" name="checkbox[]"
+				value="Apple" checked /> <label>Apple</label> <input
+				type="checkbox" name="checkbox[]" value="Motorola" /> <label>Motorola</label>
+			<input type="checkbox" name="checkbox[]" value="HUAWEI" /> <label>HUAWEI</label>
+		</p>
+		<p>
+			<button id="my-button2">提示对话框</button>
+			<button id="my-button3">提示选择对话框</button>
+			<button id="my-button4">提示输入对话框</button>
+		</p>
+	</div>
+	<script>
+		let count = 0;
+		$("#my-button").click(function() {
+			count++;
+			$("#my-label").text("点击了" + count + "次按钮，刷新页面重置次数！");
+		});
+		$("#my-button2").click(function() {
+			alert("我是提示对话框！");
+		});
+		$("#my-button3").click(function() {
+			confirm("我是选择对话框！");
+		});
+		$("#my-button4").click(function() {
+			prompt("我是输入对话框！", "请输入...");
+		});
+	</script>
+</body>
+</html>

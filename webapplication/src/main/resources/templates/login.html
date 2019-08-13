@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+body {
+	text-align: center;
+}
+
+div {
+	background-color: lightgray;
+	border: 1px solid gray;
+	border-radius: 5px;
+	margin: 100px auto 0;
+	width: 25%
+}
+
+label {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+input {
+	border-radius: 2px;
+	line-height: 1.5rem;
+	width: 80%;
+}
+
+button {
+	border-radius: 2px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	line-height: 1.5rem;
+	width: 20%;
+}
+</style>
+<meta charset="UTF-8">
+<title>登录</title>
+</head>
+<body>
+	<div>
+		<form th:action="${login}" method="post">
+			<p>
+				<label>登录</label>
+			</p>
+			<p>
+				<input type="text" name="username" placeholder="请输入用户名">
+			</p>
+			<p>
+				<input type="password" name="password" placeholder="请输入密码">
+			</p>
+			<p>
+				<button type="submit">登录</button>
+			</p>
+		</form>
+	</div>
+</body>
+</html>
